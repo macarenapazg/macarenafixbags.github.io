@@ -1,0 +1,169 @@
+
+
+/* Ajuste de tamaño de las tarjetas de productos */
+
+#catalogo.tienda {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+#catalogo.tienda .productos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    align-items: start;
+}
+
+#catalogo.tienda .producto-card {
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    background: #fff;
+}
+
+#catalogo.tienda .producto-foto {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background: #f7f7f7;
+}
+
+
+#catalogo.tienda .producto-card img.producto-imagen {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    padding: 12px;
+    margin: 0;
+}
+
+#catalogo.tienda .producto-info {
+    padding: 16px;
+}
+
+@media (max-width: 700px) {
+    #catalogo.tienda .productos-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 450px) {
+    #catalogo.tienda .productos-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* Ampliar fotos al hacer clic */
+#catalogo .producto-imagen {
+    cursor: zoom-in;
+}
+
+#visor-foto {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+#visor-foto.activo {
+    display: flex;
+}
+
+#visor-foto img {
+    display: block;
+    max-width: 90vw;
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+#cerrar-visor {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: white;
+    background: transparent;
+    border: none;
+    font-size: 38px;
+    cursor: pointer;
+}
+
+
+/* ENCABEZADO DE LA TIENDA FIX BIKE */
+
+#catalogo .tienda-encabezado {
+    text-align: center;
+    padding: 35px 20px 45px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+/* Nombre de la marca */
+#catalogo .tienda-etiqueta {
+    display: inline-block;
+    color: #159c9c;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+/* Título principal */
+#catalogo .tienda-encabezado .prodtitulo {
+    color: #252525;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+    margin: 0 0 22px;
+}
+
+/* Línea decorativa */
+#catalogo .tienda-encabezado .prodtitulo::after {
+    content: "";
+    display: block;
+    width: 65px;
+    height: 4px;
+    background: #17a2a2;
+    border-radius: 10px;
+    margin: 22px auto 0;
+}
+
+/* Descripción */
+#catalogo .tienda-descripcion {
+    max-width: 500px;
+    margin: 0 auto;
+    color: #686868;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    letter-spacing: 0.3px;
+}
+
+/* Ajustes para celulares */
+@media (max-width: 480px) {
+    #catalogo .tienda-encabezado {
+        padding: 25px 10px 30px;
+        margin-bottom: 15px;
+    }
+
+    #catalogo .tienda-encabezado .prodtitulo {
+        letter-spacing: -0.7px;
+    }
+
+    #catalogo .tienda-descripcion {
+        font-size: 0.95rem;
+    }
+}

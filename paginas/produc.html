@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fixbags productos</title>
     <link rel="stylesheet" href="../estilo.css">
+<link rel="stylesheet" href="./produc.css">
+
 </head>
 <body>
+    
     <header id="header">
         <div class="logo">
         <img src="../imagenes/F (1).png" alt="logo">
@@ -22,18 +25,123 @@
         </ul>
         </nav>
     </header>
-<div class="prodtitulo">
-    <h2> TIENDA </h2>
 
-</div>
-    <main id="catalogo">
-            <img src="../imagenes/productos/banano1.png" alt="im1" class="im1">
-            <img src="../imagenes/productos/marc1.png" alt="im2" class="im2">
-            <img src="../imagenes/productos/vol1.png" alt="im3" class="im3">
-      
+<main id="catalogo" class="tienda">
+    <header class="tienda-encabezado">
+        <p class="tienda-etiqueta">FIX BIKE</p>
+        <h1 class="prodtitulo">Nuestros productos</h1>
+        <p class="tienda-descripcion">
+            Accesorios para acompañarte en cada pedaleo.
+        </p>
+    </header>
 
-        </div>
-    </main>
+    <div class="productos-grid">
+
+        <article class="producto-card">
+    <div class="producto-foto">
+        <img
+            src="../imagenes/productos/green.jpg"
+            alt="Modelo Green"
+            class="producto-imagen"
+        >
+    </div>
+    <div class="producto-info">
+        <h2>Bolso Green</h2>
+        <p>Comodidad y estilo para tus recorridos en bicicleta.</p>
+    </div>
+</article>
+
+
+    <article class="producto-card">
+    <div class="producto-foto">
+        <img
+            src="../imagenes/productos/mpink.jpg"
+            alt="Modelo Rous"
+            class="producto-imagen"
+        >
+    </div>
+    <div class="producto-info">
+        <h2>Bolso Rous</h2>
+        <p>Comodidad y estilo para tus recorridos en bicicleta.</p>
+    </div>
+</article>
+
+  <article class="producto-card">
+    <div class="producto-foto">
+        <img
+            src="../imagenes/productos/blue.jpg"
+            alt="Modelo Blue"
+            class="producto-imagen"
+        >
+    </div>
+    <div class="producto-info">
+        <h2>Banano Blue</h2>
+        <p>Comodidad y estilo para tus recorridos en bicicleta.</p>
+    </div>
+</article>
+
+
+
+
+ <article class="producto-card">
+    <div class="producto-foto">
+        <img
+            src="../imagenes/productos/greenblue.jpg"
+            alt="Modelo twins"
+            class="producto-imagen"
+        >
+    </div>
+    <div class="producto-info">
+        <h2>Bolsos</h2>
+        <p>Comodidad y estilo para tus recorridos en bicicleta.</p>
+    </div>
+</article>
+
+
+        <article class="producto-card">
+            <div class="producto-foto">
+                <img
+                    src="../imagenes/productos/banano1.png"
+                    alt="Banano para bicicleta Fix Bike"
+                    class="producto-imagen"
+                >
+            </div>
+            <div class="producto-info">
+                <h2>Banano para bicicleta</h2>
+                <p>Practicidad y comodidad para tus recorridos urbanos.</p>
+            </div>
+        </article>
+
+        <article class="producto-card">
+            <div class="producto-foto">
+                <img
+                    src="../imagenes/productos/marc1.png"
+                    alt="Accesorio para bicicleta, modelo Marc"
+                    class="producto-imagen"
+                >
+            </div>
+            <div class="producto-info">
+                <h2>Modelo Marco</h2>
+                <p>Descubre los detalles de este diseño.</p>
+            </div>
+        </article>
+
+        <article class="producto-card">
+            <div class="producto-foto">
+                <img
+                    src="../imagenes/productos/vol1.png"
+                    alt="Accesorio para bicicleta, modelo Vol"
+                    class="producto-imagen"
+                >
+            </div>
+            <div class="producto-info">
+                <h2>Modelo F</h2>
+                <p>Accesorios pensados para acompañar tu ruta.</p>
+            </div>
+        </article>
+
+    </div>
+</main>
 
     <footer id="footer">
         <div class="insta">
@@ -42,7 +150,53 @@
             </a>
         </div>
         
-        <div class="copy"> <p>&copy; 2022</p></div>
+        <div class="copy"> <p>&copy; 2026</p></div>
         </footer>
+
+
+
+
+<div id="visor-foto" aria-label="Foto ampliada">
+    <button id="cerrar-visor" aria-label="Cerrar foto">&times;</button>
+    <img id="foto-ampliada" src="" alt="Producto ampliado">
+</div>
+
+<script>
+    const visor = document.getElementById('visor-foto');
+    const fotoAmpliada = document.getElementById('foto-ampliada');
+    const botonCerrar = document.getElementById('cerrar-visor');
+
+    document.querySelectorAll('#catalogo .producto-imagen').forEach(foto => {
+        foto.addEventListener('click', () => {
+            fotoAmpliada.src = foto.src;
+            fotoAmpliada.alt = foto.alt;
+            visor.classList.add('activo');
+        });
+    });
+
+    function cerrarVisor() {
+        visor.classList.remove('activo');
+        fotoAmpliada.src = '';
+    }
+
+    botonCerrar.addEventListener('click', cerrarVisor);
+
+    visor.addEventListener('click', evento => {
+        if (evento.target === visor) {
+            cerrarVisor();
+        }
+    });
+
+    document.addEventListener('keydown', evento => {
+        if (evento.key === 'Escape') {
+            cerrarVisor();
+        }
+    });
+</script>
+</body>
+</html>
+
+
+
 </body>
 </html>
